@@ -19,6 +19,7 @@ DELETE (remove a resource)
 
 # Tools used
 ###### VS Code (backend API handeling)
+###### Postman (For testing the API)
 
 ### developed by 
 Rupesh Dhakal (a73dhakal@outlook.com / aayushdhaka544@gmail.com)
