@@ -9,13 +9,13 @@ API - An application programming interface is a computing interface which define
 This is the RestAPI (REpresentational State Transfer) created in NodeJS which is used to access 
 and manipulate data using several stateless operation. These operations are integral to the HTTP protocol and represent an essential CRUD functionality (Create, Read, Update, Delete).
 
-The HTTP operations used are:
+###### The HTTP operations used are:
 
-POST (create a resource or generally provide data)
-GET (retrieve an index of resources or an individual resource)
-PUT (create or replace a resource)
-PATCH (update/modify a resource)
-DELETE (remove a resource)
+###### POST (create a resource or generally provide data)
+###### GET (retrieve an index of resources or an individual resource)
+###### PUT (create or replace a resource)
+###### PATCH (update/modify a resource)
+###### DELETE (remove a resource)
 
 # Tools used
 ###### VS Code (backend API handeling)
