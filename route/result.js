@@ -1,12 +1,36 @@
 const express = require('express');
 const Result = require('../model/Result');
 const router = express.Router();
+const auth = require("../auth");
 
 router.route('/')
-    .get((req, res, next) => {
-        Result.find({})
-        .then((Result)=>{
-            res.json(Result);
+    // .get((req, res, next) => {
+    //     Result.find({})
+    //     .then((Result)=>{
+    //         res.json(Result);
+    //     })
+    //     .catch(next);
+    // })
+
+    .get(auth.verifyUser, (req, res, next) => {
+        Result.find({ confirmation: "waiting" })
+        .populate({
+            path : 'WonBy'
+        })
+        .populate({
+            path: "ChallengeWon"
+        })
+        .populate({
+            path: "ChBy"
+        })
+        .populate({
+            path : 'cHacceptedBy'
+        })
+        .populate({
+            path: "confirmationSendBy"
+        })
+        .then((Challenge)=>{
+            res.json(Challenge);
         })
         .catch(next);
     })
@@ -28,6 +52,15 @@ router.route('/')
     .delete((req, res) => {
         res.statusCode = 405;
         res.json({message : "This method is not allowed"});
+    })
+
+router.route('/chresult')
+.get((req, res, next) => {
+        Result.find( req.param.id )
+        .then((Result)=>{
+            res.json(Result);
+        })
+        .catch(next);
     })
 
 router.route('/:id')

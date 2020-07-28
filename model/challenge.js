@@ -34,8 +34,21 @@ const challengeSchema = new mongoose.Schema({
     },
     status: {
         type: String
+    },
+    WonBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    confirmationSendBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    confirmation: {
+        type: String
+    },
+    proofingImage: {
+        type: String
     }
-
 },{ timestamp: true });
 
 module.exports = mongoose.model('Challenge', challengeSchema);

@@ -85,6 +85,26 @@ router.route('/myAccepted')
     })
 })
 
+router.route('/resverify')
+.get(auth.verifyUser, (req, res, next)=>{
+    Challenge.find({ $or: [{"chBy": req.user._id}, {"chAcceptedby": req.user._id}], confirmation: "waiting" })
+    .populate({
+        path: 'chBy'
+    })
+    .populate({
+        path: 'chAcceptedby'
+    })
+    .populate({
+        path: 'WonBy'
+    })
+    .populate({
+        path: 'confirmationSendBy'
+    })
+    .then((challenge)=>{
+        res.json(challenge);
+    })
+})
+
 router.route('/myAccepted1')
 .get(auth.verifyUser,(req, res, next)=>{
     Challenge.find({status: "true", chAcceptedby: req.params.id})

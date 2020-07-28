@@ -9,7 +9,11 @@ const resultSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Challenge'
     },
-    OpponentOfChallenge: {
+    ChBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User'
+    },
+    cHacceptedBy: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
