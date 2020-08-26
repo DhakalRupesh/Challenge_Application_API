@@ -4,6 +4,7 @@ const morgan = require("morgan");
 
 const gameRoute = require("./route/games");
 const uploadRoute = require("./route/upload");
+const uploadfile = require("./route/fileupload");
 const userRoute = require("./route/user");
 const challengeRoute = require("./route/challenge");
 const resultRoute = require("./route/result");
@@ -33,6 +34,7 @@ console.log("Connected to Mongo database server.")
 
 app.use("/games", gameRoute);
 app.use("/uploads", uploadRoute);
+app.use('/uploadfile', uploadfile);
 app.use("/user", userRoute);
 app.use("/challenge", challengeRoute);
 app.use("/result", resultRoute);
