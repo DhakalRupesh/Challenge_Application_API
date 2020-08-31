@@ -73,7 +73,7 @@ router.route('/myChallenges')
 // using or operator
 router.route('/myAccepted')
 .get(auth.verifyUser, (req, res, next)=>{
-    Challenge.find({ $or: [{"chBy": req.user._id}, {"chAcceptedby": req.user._id}], status: "true" })
+    Challenge.find({ $or: [{"chBy": req.user._id}, {"chAcceptedby": req.user._id}], status: "true", confirmation: "not"})
     .populate({
         path: 'chBy'
     })
