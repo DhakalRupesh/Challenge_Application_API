@@ -15,6 +15,13 @@ describe("Users Route Test", () => {
         phone: "123456789",
         proImg: "image"
       })
+      // .then(response => {
+      //   expect(response.data.status).toMatch("Signup success!");
+      // })
+      // .catch(err => {
+      //   expect(err.response.status).toBe(500);
+      //   expect(err.response.data.status).toMatch("Username already exists!");
+      // });
   });
 
   test("login of existing user", () => {
