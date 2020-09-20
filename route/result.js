@@ -4,36 +4,36 @@ const router = express.Router();
 const auth = require("../auth");
 
 router.route('/')
-    // .get((req, res, next) => {
-    //     Result.find({})
-    //     .then((Result)=>{
-    //         res.json(Result);
-    //     })
-    //     .catch(next);
-    // })
-
-    .get(auth.verifyUser, (req, res, next) => {
-        Result.find({ confirmation: "waiting" })
-        .populate({
-            path : 'WonBy'
-        })
-        .populate({
-            path: "ChallengeWon"
-        })
-        .populate({
-            path: "ChBy"
-        })
-        .populate({
-            path : 'cHacceptedBy'
-        })
-        .populate({
-            path: "confirmationSendBy"
-        })
-        .then((Challenge)=>{
-            res.json(Challenge);
+    .get((req, res, next) => {
+        Result.find({})
+        .then((Result)=>{
+            res.json(Result);
         })
         .catch(next);
     })
+
+    // .get(auth.verifyUser, (req, res, next) => {
+    //     Result.find({ confirmation: "waiting" })
+    //     .populate({
+    //         path : 'WonBy'
+    //     })
+    //     .populate({
+    //         path: "ChallengeWon"
+    //     })
+    //     .populate({
+    //         path: "ChBy"
+    //     })
+    //     .populate({
+    //         path : 'cHacceptedBy'
+    //     })
+    //     .populate({
+    //         path: "confirmationSendBy"
+    //     })
+    //     .then((Challenge)=>{
+    //         res.json(Challenge);
+    //     })
+    //     .catch(next);
+    // })
 
     .post((req, res, next)=>{
         Result.create(req.body)
