@@ -1,8 +1,8 @@
 const axios = require("axios");
 const baseurl = "http://localhost:3002/result";
-describe("Users Route Test", () => {
+describe("Result Route Test", () => {
     let token;
-    test("sign up of new user", () => {
+    test("new result", () => {
         return axios
         .post(baseurl + "/", {
             ChallengeWon : "5efc8a8c7c36010d30075b07",

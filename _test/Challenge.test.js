@@ -21,7 +21,7 @@ describe("challenge route test", () => {
         });
     })
 
-    test("get all challenges", () => {
+    test("get one challenges", () => {
         return axios
         .get(baseurl + "/5f66b760e4d8c911d0f1dcae", {
         })
@@ -30,7 +30,7 @@ describe("challenge route test", () => {
         });
     })
 
-    test("get all challenges", () => {
+    test("update one challenges", () => {
         return axios
         .put(baseurl + "/5f66b760e4d8c911d0f1dcae", {
             chType: "solo",
